@@ -8,11 +8,12 @@ import MainGridLayout from "@layouts/MainGridLayout.astro";
 import { getSortedPosts } from "@utils/content-utils";
 import { getDir, getPostUrlBySlug } from "@utils/url-utils";
 import { Icon } from "astro-icon/components";
-import { licenseConfig } from "src/config";
+import { licenseConfig, siteConfig } from "src/config";
 import ImageWrapper from "../../components/misc/ImageWrapper.astro";
 import PostMetadata from "../../components/PostMeta.astro";
-import { profileConfig, siteConfig } from "../../config";
+import { profileConfig } from "../../config";
 import { formatDateToYYYYMMDD } from "../../utils/date-utils";
+import Comments from "@components/Comments.astro";
 
 export async function getStaticPaths() {
 	const blogEntries = await getSortedPosts();
@@ -107,6 +108,13 @@ const jsonLd = {
             </Markdown>
 
             {licenseConfig.enable && <License title={entry.data.title} slug={entry.slug} pubDate={entry.data.published} class="mb-6 rounded-xl license-container onload-animation"></License>}
+            
+            <!-- Comments section -->
+            {siteConfig.comments.enable && (
+                <div class="mt-8">
+                    <Comments slug={entry.slug} />
+                </div>
+            )}
 
         </div>
     </div>

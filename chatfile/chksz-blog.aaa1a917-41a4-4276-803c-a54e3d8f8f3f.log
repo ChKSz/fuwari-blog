@@ -1,0 +1,128 @@
+2025-08-13T10:21:39.528211Z	Cloning repository...
+2025-08-13T10:21:40.233708Z	From https://github.com/ChKSz/fuwari-blog
+2025-08-13T10:21:40.23426Z	 * branch            9b2b4766ce115e81d0f93078ece147927283ad4c -> FETCH_HEAD
+2025-08-13T10:21:40.23439Z	
+2025-08-13T10:21:40.272122Z	HEAD is now at 9b2b476 0813 项目初版
+2025-08-13T10:21:40.272545Z	
+2025-08-13T10:21:40.352144Z	
+2025-08-13T10:21:40.352622Z	Using v2 root directory strategy
+2025-08-13T10:21:40.374502Z	Success: Finished cloning repository files
+2025-08-13T10:21:42.196878Z	Checking for configuration in a Wrangler configuration file (BETA)
+2025-08-13T10:21:42.197762Z	
+2025-08-13T10:21:43.294737Z	No wrangler.toml file found. Continuing.
+2025-08-13T10:21:43.361807Z	Detected the following tools from environment: pnpm@9.14.4, nodejs@22.16.0
+2025-08-13T10:21:43.688728Z	Preparing pnpm@9.14.4 for immediate activation...
+2025-08-13T10:21:45.616948Z	Installing project dependencies: pnpm install
+2025-08-13T10:21:46.264816Z	Lockfile is up to date, resolution step is skipped
+2025-08-13T10:21:46.342747Z	Progress: resolved 1, reused 0, downloaded 0, added 0
+2025-08-13T10:21:46.620385Z	Packages: +1074
+2025-08-13T10:21:46.620738Z	++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2025-08-13T10:21:47.343318Z	Progress: resolved 1074, reused 0, downloaded 55, added 45
+2025-08-13T10:21:48.344197Z	Progress: resolved 1074, reused 0, downloaded 195, added 185
+2025-08-13T10:21:49.343656Z	Progress: resolved 1074, reused 0, downloaded 411, added 405
+2025-08-13T10:21:50.344571Z	Progress: resolved 1074, reused 0, downloaded 654, added 652
+2025-08-13T10:21:51.346688Z	Progress: resolved 1074, reused 0, downloaded 921, added 911
+2025-08-13T10:21:52.394246Z	Progress: resolved 1074, reused 0, downloaded 1056, added 1052
+2025-08-13T10:21:53.043421Z	Progress: resolved 1074, reused 0, downloaded 1074, added 1074, done
+2025-08-13T10:21:53.35727Z	.../sharp@0.34.3/node_modules/sharp install$ node install/check.js
+2025-08-13T10:21:53.358496Z	.../esbuild@0.25.8/node_modules/esbuild postinstall$ node install.js
+2025-08-13T10:21:53.399061Z	.../.pnpm/swup@4.8.2/node_modules/swup postinstall$ opencollective-postinstall || true
+2025-08-13T10:21:53.39995Z	.../sharp@0.33.5/node_modules/sharp install$ node install/check
+2025-08-13T10:21:53.513086Z	.../.pnpm/swup@4.8.2/node_modules/swup postinstall: Done
+2025-08-13T10:21:53.516605Z	.../esbuild@0.25.8/node_modules/esbuild postinstall: Done
+2025-08-13T10:21:53.547877Z	.../sharp@0.34.3/node_modules/sharp install: Done
+2025-08-13T10:21:53.574017Z	.../sharp@0.33.5/node_modules/sharp install: Done
+2025-08-13T10:21:53.714669Z	
+2025-08-13T10:21:53.71498Z	dependencies:
+2025-08-13T10:21:53.715219Z	+ @astrojs/check 0.9.4
+2025-08-13T10:21:53.715379Z	+ @astrojs/rss 4.0.12
+2025-08-13T10:21:53.715539Z	+ @astrojs/sitemap 3.4.2
+2025-08-13T10:21:53.715691Z	+ @astrojs/svelte 7.1.0
+2025-08-13T10:21:53.715889Z	+ @astrojs/tailwind 6.0.2
+2025-08-13T10:21:53.716704Z	+ @expressive-code/core 0.41.3
+2025-08-13T10:21:53.71699Z	+ @expressive-code/plugin-collapsible-sections 0.41.3
+2025-08-13T10:21:53.717464Z	+ @expressive-code/plugin-line-numbers 0.41.3
+2025-08-13T10:21:53.71774Z	+ @fontsource-variable/jetbrains-mono 5.2.6
+2025-08-13T10:21:53.71786Z	+ @fontsource/roboto 5.2.6
+2025-08-13T10:21:53.718056Z	+ @iconify-json/fa6-brands 1.2.6
+2025-08-13T10:21:53.718397Z	+ @iconify-json/fa6-regular 1.2.4
+2025-08-13T10:21:53.718515Z	+ @iconify-json/fa6-solid 1.2.4
+2025-08-13T10:21:53.718619Z	+ @iconify-json/material-symbols 1.2.30
+2025-08-13T10:21:53.718719Z	+ @iconify/svelte 4.2.0
+2025-08-13T10:21:53.718811Z	+ @swup/astro 1.7.0
+2025-08-13T10:21:53.718913Z	+ @tailwindcss/typography 0.5.16
+2025-08-13T10:21:53.719031Z	+ astro 5.12.3
+2025-08-13T10:21:53.719562Z	+ astro-expressive-code 0.41.3
+2025-08-13T10:21:53.719689Z	+ astro-icon 1.1.5
+2025-08-13T10:21:53.719767Z	+ hastscript 9.0.1
+2025-08-13T10:21:53.719871Z	+ katex 0.16.22
+2025-08-13T10:21:53.719932Z	+ markdown-it 14.1.0
+2025-08-13T10:21:53.720005Z	+ mdast-util-to-string 4.0.0
+2025-08-13T10:21:53.720122Z	+ overlayscrollbars 2.11.4
+2025-08-13T10:21:53.720244Z	+ pagefind 1.3.0
+2025-08-13T10:21:53.720889Z	+ photoswipe 5.4.4
+2025-08-13T10:21:53.72102Z	+ reading-time 1.5.0
+2025-08-13T10:21:53.721316Z	+ rehype-autolink-headings 7.1.0
+2025-08-13T10:21:53.721447Z	+ rehype-components 0.3.0
+2025-08-13T10:21:53.721573Z	+ rehype-katex 7.0.1
+2025-08-13T10:21:53.721713Z	+ rehype-slug 6.0.0
+2025-08-13T10:21:53.721869Z	+ remark-directive 3.0.1
+2025-08-13T10:21:53.721994Z	+ remark-directive-rehype 0.4.2
+2025-08-13T10:21:53.722104Z	+ remark-github-admonitions-to-directives 1.0.5
+2025-08-13T10:21:53.722236Z	+ remark-math 6.0.0
+2025-08-13T10:21:53.722329Z	+ remark-sectionize 2.1.0
+2025-08-13T10:21:53.72243Z	+ sanitize-html 2.17.0
+2025-08-13T10:21:53.722544Z	+ sharp 0.34.3
+2025-08-13T10:21:53.722678Z	+ stylus 0.64.0
+2025-08-13T10:21:53.722779Z	+ svelte 5.37.1
+2025-08-13T10:21:53.722916Z	+ tailwindcss 3.4.17
+2025-08-13T10:21:53.723022Z	+ typescript 5.8.3
+2025-08-13T10:21:53.723138Z	+ unist-util-visit 5.0.0
+2025-08-13T10:21:53.723257Z	
+2025-08-13T10:21:53.723354Z	devDependencies:
+2025-08-13T10:21:53.723451Z	+ @astrojs/ts-plugin 1.10.4
+2025-08-13T10:21:53.723583Z	+ @biomejs/biome 2.1.2
+2025-08-13T10:21:53.723709Z	+ @rollup/plugin-yaml 4.1.2
+2025-08-13T10:21:53.723821Z	+ @types/hast 3.0.4
+2025-08-13T10:21:53.723896Z	+ @types/markdown-it 14.1.2
+2025-08-13T10:21:53.723953Z	+ @types/mdast 4.0.4
+2025-08-13T10:21:53.724009Z	+ @types/sanitize-html 2.16.0
+2025-08-13T10:21:53.72419Z	+ postcss-import 16.1.1
+2025-08-13T10:21:53.724333Z	+ postcss-nesting 13.0.2
+2025-08-13T10:21:53.724464Z	
+2025-08-13T10:21:53.734759Z	Done in 7.8s
+2025-08-13T10:21:53.820571Z	Executing user command: pnpm build
+2025-08-13T10:21:54.422191Z	
+2025-08-13T10:21:54.422549Z	> fuwari@0.0.1 build /opt/buildhome/repo
+2025-08-13T10:21:54.422648Z	> astro build && pagefind --site dist
+2025-08-13T10:21:54.42315Z	
+2025-08-13T10:21:57.219737Z	10:21:57 [vite] Forced re-optimization of dependencies
+2025-08-13T10:21:57.62285Z	
+2025-08-13T10:21:57.623194Z	Auto-generating collections for folders in "src/content/" that are not defined as collections.
+2025-08-13T10:21:57.623358Z	This is deprecated, so you should define these collections yourself in "src/content.config.ts".
+2025-08-13T10:21:57.623478Z	The following collections have been auto-generated: spec
+2025-08-13T10:21:57.623603Z	
+2025-08-13T10:21:57.626696Z	10:21:57 [content] Syncing content
+2025-08-13T10:21:57.701618Z	10:21:57 [content] Synced content
+2025-08-13T10:21:57.702294Z	10:21:57 [types] Generated 539ms
+2025-08-13T10:21:57.702706Z	10:21:57 [build] output: "static"
+2025-08-13T10:21:57.70289Z	10:21:57 [build] mode: "static"
+2025-08-13T10:21:57.70303Z	10:21:57 [build] directory: /opt/buildhome/repo/dist/
+2025-08-13T10:21:57.703179Z	10:21:57 [build] Collecting build info...
+2025-08-13T10:21:57.703466Z	10:21:57 [build] ✓ Completed in 721ms.
+2025-08-13T10:21:57.704802Z	10:21:57 [build] Building static entrypoints...
+2025-08-13T10:21:59.906889Z	10:21:59 [ERROR] [vite] [31m✗[39m Build failed in 2.15s
+2025-08-13T10:22:00.655255Z	[vite:css] [postcss] /opt/buildhome/repo/src/styles/markdown.css:23:9: The `link` class does not exist. If `link` is a custom class, make sure it is defined within a `@layer` directive.
+2025-08-13T10:22:00.655607Z	file: /opt/buildhome/repo/src/styles/markdown.css:23:8
+2025-08-13T10:22:00.655744Z	  Location:
+2025-08-13T10:22:00.655842Z	    /opt/buildhome/repo/src/styles/markdown.css:23:8
+2025-08-13T10:22:00.655948Z	  Stack trace:
+2025-08-13T10:22:00.656155Z	    at Input.error (/opt/buildhome/repo/node_modules/.pnpm/postcss@8.5.6/node_modules/postcss/lib/input.js:135:16)
+2025-08-13T10:22:00.65646Z	    at processApply (/opt/buildhome/repo/node_modules/.pnpm/tailwindcss@3.4.17/node_modules/tailwindcss/lib/lib/expandApplyAtRules.js:380:29)
+2025-08-13T10:22:00.657301Z	    at /opt/buildhome/repo/node_modules/.pnpm/tailwindcss@3.4.17/node_modules/tailwindcss/lib/processTailwindFeatures.js:55:50
+2025-08-13T10:22:00.657404Z	    at async LazyResult.runAsync (/opt/buildhome/repo/node_modules/.pnpm/postcss@8.5.6/node_modules/postcss/lib/lazy-result.js:293:11)
+2025-08-13T10:22:00.657469Z	    at async compilePostCSS (file:///opt/buildhome/repo/node_modules/.pnpm/vite@6.3.5_@types+node@24.1.0_jiti@1.21.7_stylus@0.64.0_terser@5.43.1_yaml@2.8.0/node_modules/vite/dist/node/chunks/dep-DBxKXgDP.js:43794:18)
+2025-08-13T10:22:00.734261Z	 ELIFECYCLE  Command failed with exit code 1.
+2025-08-13T10:22:00.763706Z	Failed: Error while executing user command. Exited with error code: 1
+2025-08-13T10:22:00.773078Z	Failed: build command exited with code: 1
+2025-08-13T10:22:01.791917Z	Failed: error occurred while running build command

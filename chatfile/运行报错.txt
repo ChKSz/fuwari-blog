@@ -1,0 +1,45 @@
+C:\Users\wuguo\Desktop\开发\Fuwari>pnpm dev
+
+> fuwari@0.0.1 dev C:\Users\wuguo\Desktop\开发\Fuwari
+> astro dev
+
+16:23:36 [types] Generated 1ms
+
+Auto-generating collections for folders in "src/content/" that are not defined as collections.
+This is deprecated, so you should define these collections yourself in "src/content.config.ts".
+The following collections have been auto-generated: spec
+
+16:23:36 [content] Syncing content
+bad indentation of a mapping entry
+  Location:
+    C:\Users\wuguo\Desktop\开发\Fuwari\src\content\posts\新的域名，新的开始.md:6:14
+  Stack trace:
+    at generateError (file:///C:/Users/wuguo/Desktop/%E5%BC%80%E5%8F%91/Fuwari/node_modules/.pnpm/js-yaml@4.1.0/node_modules/js-yaml/dist/js-yaml.mjs:1273:10)
+    at readBlockMapping (file:///C:/Users/wuguo/Desktop/%E5%BC%80%E5%8F%91/Fuwari/node_modules/.pnpm/js-yaml@4.1.0/node_modules/js-yaml/dist/js-yaml.mjs:2272:7)
+    at readDocument (file:///C:/Users/wuguo/Desktop/%E5%BC%80%E5%8F%91/Fuwari/node_modules/.pnpm/js-yaml@4.1.0/node_modules/js-yaml/dist/js-yaml.mjs:2715:3)
+    at load$1 (file:///C:/Users/wuguo/Desktop/%E5%BC%80%E5%8F%91/Fuwari/node_modules/.pnpm/js-yaml@4.1.0/node_modules/js-yaml/dist/js-yaml.mjs:2804:19)
+    at safeParseFrontmatter (file:///C:/Users/wuguo/Desktop/%E5%BC%80%E5%8F%91/Fuwari/node_modules/.pnpm/astro@5.12.3_@types+node@24.1.0_jiti@1.21.7_rollup@2.79.2_stylus@0.64.0_terser@5.43.1_typescript@5.8.3_yaml@2.8.0/node_modules/astro/dist/content/utils.js:336:12)
+ ELIFECYCLE  Command failed with exit code 1.
+
+C:\Users\wuguo\Desktop\开发\Fuwari>pnpm dev
+
+> fuwari@0.0.1 dev C:\Users\wuguo\Desktop\开发\Fuwari
+> astro dev
+
+16:24:16 [types] Generated 3ms
+
+Auto-generating collections for folders in "src/content/" that are not defined as collections.
+This is deprecated, so you should define these collections yourself in "src/content.config.ts".
+The following collections have been auto-generated: spec
+
+16:24:17 [content] Syncing content
+bad indentation of a mapping entry
+  Location:
+    C:\Users\wuguo\Desktop\开发\Fuwari\src\content\posts\spaceshipcom20.md:6:14
+  Stack trace:
+    at generateError (file:///C:/Users/wuguo/Desktop/%E5%BC%80%E5%8F%91/Fuwari/node_modules/.pnpm/js-yaml@4.1.0/node_modules/js-yaml/dist/js-yaml.mjs:1273:10)
+    at readBlockMapping (file:///C:/Users/wuguo/Desktop/%E5%BC%80%E5%8F%91/Fuwari/node_modules/.pnpm/js-yaml@4.1.0/node_modules/js-yaml/dist/js-yaml.mjs:2272:7)
+    at readDocument (file:///C:/Users/wuguo/Desktop/%E5%BC%80%E5%8F%91/Fuwari/node_modules/.pnpm/js-yaml@4.1.0/node_modules/js-yaml/dist/js-yaml.mjs:2715:3)
+    at load$1 (file:///C:/Users/wuguo/Desktop/%E5%BC%80%E5%8F%91/Fuwari/node_modules/.pnpm/js-yaml@4.1.0/node_modules/js-yaml/dist/js-yaml.mjs:2804:19)
+    at safeParseFrontmatter (file:///C:/Users/wuguo/Desktop/%E5%BC%80%E5%8F%91/Fuwari/node_modules/.pnpm/astro@5.12.3_@types+node@24.1.0_jiti@1.21.7_rollup@2.79.2_stylus@0.64.0_terser@5.43.1_typescript@5.8.3_yaml@2.8.0/node_modules/astro/dist/content/utils.js:336:12)
+ ELIFECYCLE  Command failed with exit code 1.

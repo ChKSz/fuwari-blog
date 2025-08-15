@@ -1,0 +1,22 @@
+
+Use dark theme
+Error
+An error occurred.
+Unable to locate the "simple-icons" icon set!
+It looks like the "simple-icons" set is not included in your configuration.
+
+Do you need to add the "simple-icons" set?
+components/Icon.astro:81:15
+Open in editor
+Stack Trace
+Error: Unable to locate the "simple-icons" icon set!
+    at C:\Users\wuguo\Desktop\%E5%BC%80%E5%8F%91\Fuwari\node_modules\.pnpm\astro-icon@1.1.5\node_modules\astro-icon\components\Icon.astro:81:15
+    at AstroComponentInstance.Icon [as factory] (C:\Users\wuguo\Desktop\开发\Fuwari\node_modules\.pnpm\astro@5.12.3_@types+node@24.1.0_jiti@1.21.7_rollup@2.79.2_stylus@0.64.0_terser@5.43.1_typescript@5.8.3_yaml@2.8.0\node_modules\astro\dist\runtime\server\astro-component.js:16:12)
+    at AstroComponentInstance.init (C:\Users\wuguo\Desktop\开发\Fuwari\node_modules\.pnpm\astro@5.12.3_@types+node@24.1.0_jiti@1.21.7_rollup@2.79.2_stylus@0.64.0_terser@5.43.1_typescript@5.8.3_yaml@2.8.0\node_modules\astro\dist\runtime\server\render\astro\instance.js:34:29)
+    at AstroComponentInstance.render (C:\Users\wuguo\Desktop\开发\Fuwari\node_modules\.pnpm\astro@5.12.3_@types+node@24.1.0_jiti@1.21.7_rollup@2.79.2_stylus@0.64.0_terser@5.43.1_typescript@5.8.3_yaml@2.8.0\node_modules\astro\dist\runtime\server\render\astro\instance.js:44:30)
+    at Object.render (C:\Users\wuguo\Desktop\开发\Fuwari\node_modules\.pnpm\astro@5.12.3_@types+node@24.1.0_jiti@1.21.7_rollup@2.79.2_stylus@0.64.0_terser@5.43.1_typescript@5.8.3_yaml@2.8.0\node_modules\astro\dist\runtime\server\render\component.js:355:23)
+    at renderChild (C:\Users\wuguo\Desktop\开发\Fuwari\node_modules\.pnpm\astro@5.12.3_@types+node@24.1.0_jiti@1.21.7_rollup@2.79.2_stylus@0.64.0_terser@5.43.1_typescript@5.8.3_yaml@2.8.0\node_modules\astro\dist\runtime\server\render\any.js:33:18)
+    at C:\Users\wuguo\Desktop\开发\Fuwari\node_modules\.pnpm\astro@5.12.3_@types+node@24.1.0_jiti@1.21.7_rollup@2.79.2_stylus@0.64.0_terser@5.43.1_typescript@5.8.3_yaml@2.8.0\node_modules\astro\dist\runtime\server\render\astro\render-template.js:30:29
+    at new BufferedRenderer (C:\Users\wuguo\Desktop\开发\Fuwari\node_modules\.pnpm\astro@5.12.3_@types+node@24.1.0_jiti@1.21.7_rollup@2.79.2_stylus@0.64.0_terser@5.43.1_typescript@5.8.3_yaml@2.8.0\node_modules\astro\dist\runtime\server\render\util.js:129:26)
+    at createBufferedRenderer (C:\Users\wuguo\Desktop\开发\Fuwari\node_modules\.pnpm\astro@5.12.3_@types+node@24.1.0_jiti@1.21.7_rollup@2.79.2_stylus@0.64.0_terser@5.43.1_typescript@5.8.3_yaml@2.8.0\node_modules\astro\dist\runtime\server\render\util.js:153:10)
+    at C:\Users\wuguo\Desktop\开发\Fuwari\node_modules\.pnpm\astro@5.12.3_@types+node@24.1.0_jiti@1.21.7_rollup@2.79.2_stylus@0.64.0_terser@5.43.1_typescript@5.8.3_yaml@2.8.0\node_modules\astro\dist\runtime\server\render\astro\render-template.js:28:36

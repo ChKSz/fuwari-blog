@@ -1,0 +1,27 @@
+---
+interface Props {
+  slug: string;
+}
+
+const { slug } = Astro.props;
+---
+
+<div id="comments-container" class="mt-8">
+  <script
+    src="https://giscus.app/client.js"
+    data-repo="chksz/fuwari-blog"
+    data-repo-id="R_kgDOPdF5DA"
+    data-category="Comments"
+    data-category-id="DIC_kwDOPdF5DM4CuKbl"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="preferred_color_scheme"
+    data-lang="zh-CN"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async>
+  </script>
+</div>
