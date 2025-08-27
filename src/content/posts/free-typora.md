@@ -2,7 +2,7 @@
 title: Typora免费激活版！
 published: 2025-08-27
 description: '免费享受Typora付费的体验！'
-image: '2025-08-27-21-57-14-image.png'
+image: './assets/images/2025-08-27-21-57-14-image.png'
 tags: ['破解','Typora']
 category: '破解'
 draft: false 
