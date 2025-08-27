@@ -3,7 +3,7 @@ title: 搭建本站同款Fuwari博客教程！
 published: 2025-08-14
 description: '15分钟快速上手纯免费个人博客平台'
 image: './assets/images/PixPin_2025-08-14_21-55-30.png'
-tags: ['Fuwari','Blog','netlify']
+tags: ['Fuwari','Blog','Netlify']
 category: '教程'
 draft: false
 lang: 'zh-CN'
@@ -226,11 +226,10 @@ export const expressiveCodeConfig: ExpressiveCodeConfig = {
 
 **Let's continue;**
 
-首先装一下`pmpm`：
+装一下`pnpm`：
 
 ```bash
-npm install -g cnpm --registry=https://registry.npmmirror.com
-cnpm install -g pnpm
+npm install -g pnpm
 ```
 
 然后我们回到项目根目录，打开cmd
@@ -301,15 +300,15 @@ lang: ''
 
 - draft：是否为草稿（不会发布给公众）
 
-
-
 **设：** 写作完成！
 
 接下来就是发布啦~
 
 ### 发布到Github
 
-1. git身份认证
+1. 在自己的github仓库中新建一个fuwari-blog
+
+2. git身份认证
 
 ```bash
 git config --global user.name "gh_id"
@@ -329,6 +328,8 @@ git checkout -b main
 ```
 
 4. 推送更改！
+   
+   这里的commit中绿色的内容为本次修改的描述，可自行修改。
 
 ```bash
 git remote add origin https://github.com/gh_id/fuwari-blog.git
@@ -337,4 +338,6 @@ git commit -m "init"
 git push origin main
 ```
 
-待续...
+### 部署到Netlify
+
+这个有空再写吧，急的可以自己搜搜教程。
