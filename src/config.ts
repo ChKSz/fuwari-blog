@@ -16,8 +16,8 @@ export const siteConfig: SiteConfig = {
 	subtitle: "Tech.",
 	lang: "zh_CN", // 'en', 'zh_CN', 'zh_TW', 'ja', 'ko', 'es', 'th', 'vi'  语言选择
 	themeColor: {
-		hue: 200, // 主题颜色的默认色相，范围从0到360。例如：红色: 0, 青色: 200, 青绿色: 250, 粉色: 345  这是默认主题颜色
-		fixed: true, // 为访问者隐藏主题颜色选择器
+		hue: 235, // 主题颜色的默认色相，范围从0到360。例如：红色: 0, 青色: 200, 青绿色: 250, 粉色: 345  这是默认主题颜色
+		fixed: false, // 为访问者隐藏主题颜色选择器
 	},
 	banner: {
 		enable: false,
