@@ -64,7 +64,7 @@ const { remarkPluginFrontmatter } = await entry.render();
             { description || remarkPluginFrontmatter.excerpt }
         </div>
 
-        <!-- word count and read time  -->
+        <!-- word count, read time, and page views -->
         <div class="text-sm text-black/30 dark:text-white/30 flex gap-4 transition">
             <div>
                 {remarkPluginFrontmatter.words} {" " + i18n(remarkPluginFrontmatter.words === 1 ? I18nKey.wordCount : I18nKey.wordsCount)}
@@ -73,7 +73,42 @@ const { remarkPluginFrontmatter } = await entry.render();
             <div>
                 {remarkPluginFrontmatter.minutes} {" " + i18n(remarkPluginFrontmatter.minutes === 1 ? I18nKey.minuteCount : I18nKey.minutesCount)}
             </div>
+            <div>|</div>
+            <div class="page-views" data-slug={entry.slug}>
+                <span class="pageviews-count">加载中...</span>
+            </div>
         </div>
+        
+        <script is:inline>
+            // 在客户端获取并显示浏览量
+            (async () => {
+                const viewElements = document.querySelectorAll('.page-views');
+                // 使用 Promise.all 并行获取所有文章的浏览量数据
+                const promises = Array.from(viewElements).map(async (element) => {
+                    const slug = element.dataset.slug;
+                    if (slug) {
+                        try {
+                            // 动态导入 umami-utils 模块
+                            const { getPageStats } = await import('/src/utils/umami-utils.ts');
+                            const stats = await getPageStats(`/posts/${slug}/`);
+                            const viewsElement = element.querySelector('.pageviews-count');
+                            if (viewsElement) {
+                                viewsElement.textContent = `浏览量${stats.pageviews} · 访问数${stats.visits}`;
+                            }
+                        } catch (error) {
+                            console.error('Error fetching page stats:', error);
+                            const viewsElement = element.querySelector('.pageviews-count');
+                            if (viewsElement) {
+                                viewsElement.textContent = '浏览量N/A';
+                            }
+                        }
+                    }
+                });
+                
+                // 等待所有请求完成
+                await Promise.all(promises);
+            })();
+        </script>
 
     </div>
 

@@ -52,7 +52,7 @@ const jsonLd = {
         <div id="post-container" class:list={["card-base z-10 px-6 md:px-9 pt-6 pb-4 relative w-full ",
             {}
         ]}>
-            <!-- word count and reading time -->
+            <!-- word count, reading time, and page views -->
             <div class="flex flex-row text-black/30 dark:text-white/30 gap-5 mb-3 transition onload-animation">
                 <div class="flex flex-row items-center">
                     <div class="transition h-6 w-6 rounded-md bg-black/5 dark:bg-white/10 text-black/50 dark:text-white/50 flex items-center justify-center mr-2">
@@ -68,7 +68,40 @@ const jsonLd = {
                         {remarkPluginFrontmatter.minutes} {" " + i18n(remarkPluginFrontmatter.minutes === 1 ? I18nKey.minuteCount : I18nKey.minutesCount)}
                     </div>
                 </div>
+                <div class="flex flex-row items-center page-views-detail" data-slug={entry.slug}>
+                    <div class="transition h-6 w-6 rounded-md bg-black/5 dark:bg-white/10 text-black/50 dark:text-white/50 flex items-center justify-center mr-2">
+                        <Icon name="material-symbols:visibility-outline-rounded"></Icon>
+                    </div>
+                    <div class="text-sm pageviews-count">加载中...</div>
+                </div>
             </div>
+            
+            <script is:inline>
+                // 在客户端获取并显示浏览量
+                (async () => {
+                    const viewElement = document.querySelector('.page-views-detail');
+                    if (viewElement) {
+                        const slug = viewElement.dataset.slug;
+                        if (slug) {
+                            try {
+                                // 动态导入 umami-utils 模块
+                                const { getPageStats } = await import('/src/utils/umami-utils.ts');
+                                const stats = await getPageStats(`/posts/${slug}/`);
+                                const viewsElement = viewElement.querySelector('.pageviews-count');
+                                if (viewsElement) {
+                                    viewsElement.textContent = `浏览量${stats.pageviews} · 访问数${stats.visits}`;
+                                }
+                            } catch (error) {
+                                console.error('Error fetching page stats:', error);
+                                const viewsElement = viewElement.querySelector('.pageviews-count');
+                                if (viewsElement) {
+                                    viewsElement.textContent = '浏览量N/A';
+                                }
+                            }
+                        }
+                    }
+                })();
+            </script>
 
             <!-- title -->
             <div class="relative onload-animation">

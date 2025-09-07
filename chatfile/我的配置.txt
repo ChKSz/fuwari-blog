@@ -1,0 +1,9 @@
+我访问
+https://us.umami.is/api/share/DHrKnEICFrgNDMxE
+（我的网站）
+返回：
+
+{
+  "websiteId": "6e4cc579-f61e-46f3-af30-45f1989e5c2e",
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ3ZWJzaXRlSWQiOiI2ZTRjYzU3OS1mNjFlLTQ2ZjMtYWYzMC00NWYxOTg5ZTVjMmUiLCJpYXQiOjE3NTcxNjIwOTB9._wLy0ob8ueC-tq_fkGo3wfsxb3CmWEqyI4_qT3V__mw"
+}
