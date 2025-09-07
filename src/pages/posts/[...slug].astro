@@ -8,7 +8,7 @@ import MainGridLayout from "@layouts/MainGridLayout.astro";
 import { getSortedPosts } from "@utils/content-utils";
 import { getDir, getPostUrlBySlug } from "@utils/url-utils";
 import { Icon } from "astro-icon/components";
-import { licenseConfig, siteConfig } from "src/config";
+import { licenseConfig, siteConfig, umamiConfig } from "src/config";
 import ImageWrapper from "../../components/misc/ImageWrapper.astro";
 import PostMetadata from "../../components/PostMeta.astro";
 import { profileConfig } from "../../config";
@@ -68,39 +68,67 @@ const jsonLd = {
                         {remarkPluginFrontmatter.minutes} {" " + i18n(remarkPluginFrontmatter.minutes === 1 ? I18nKey.minuteCount : I18nKey.minutesCount)}
                     </div>
                 </div>
-                <div class="flex flex-row items-center page-views-detail" data-slug={entry.slug}>
+                <div class="flex flex-row items-center">
                     <div class="transition h-6 w-6 rounded-md bg-black/5 dark:bg-white/10 text-black/50 dark:text-white/50 flex items-center justify-center mr-2">
                         <Icon name="material-symbols:visibility-outline-rounded"></Icon>
                     </div>
-                    <div class="text-sm pageviews-count">加载中...</div>
+                    <div class="text-sm" id={`page-views-detail-${entry.slug}`}>加载中...</div>
                 </div>
             </div>
             
-            <script is:inline>
-                // 在客户端获取并显示浏览量
-                (async () => {
-                    const viewElement = document.querySelector('.page-views-detail');
-                    if (viewElement) {
-                        const slug = viewElement.dataset.slug;
-                        if (slug) {
-                            try {
-                                // 动态导入 umami-utils 模块
-                                const { getPageStats } = await import('/src/utils/umami-utils.ts');
-                                const stats = await getPageStats(`/posts/${slug}/`);
-                                const viewsElement = viewElement.querySelector('.pageviews-count');
-                                if (viewsElement) {
-                                    viewsElement.textContent = `浏览量${stats.pageviews} · 访问数${stats.visits}`;
-                                }
-                            } catch (error) {
-                                console.error('Error fetching page stats:', error);
-                                const viewsElement = viewElement.querySelector('.pageviews-count');
-                                if (viewsElement) {
-                                    viewsElement.textContent = '浏览量N/A';
-                                }
+            <script define:vars={{ slug: entry.slug, umamiConfig }}>
+                // 获取访问量统计
+                async function fetchPageViews() {
+                    if (!umamiConfig.enable) {
+                        return;
+                    }
+                    
+                    try {
+                        // 第一步：获取网站ID和token
+                        const shareResponse = await fetch(`${umamiConfig.baseUrl}/api/share/${umamiConfig.shareId}`);
+                        if (!shareResponse.ok) {
+                            throw new Error('获取分享信息失败');
+                        }
+                        const shareData = await shareResponse.json();
+                        const { websiteId, token } = shareData;
+                        
+                        // 第二步：获取统计数据
+                        const currentTimestamp = Date.now();
+                        const statsUrl = `${umamiConfig.baseUrl}/api/websites/${websiteId}/stats?startAt=0&endAt=${currentTimestamp}&unit=hour&timezone=${encodeURIComponent(umamiConfig.timezone)}&url=%2Fposts%2F${slug}%2F&compare=false`;
+                        
+                        const statsResponse = await fetch(statsUrl, {
+                            headers: {
+                                'x-umami-share-token': token
                             }
+                        });
+                        
+                        if (!statsResponse.ok) {
+                            throw new Error('获取统计数据失败');
+                        }
+                        
+                        const statsData = await statsResponse.json();
+                        const pageViews = statsData.pageviews?.value || 0;
+                        const visits = statsData.visits?.value || 0;
+                        
+                        const displayElement = document.getElementById(`page-views-detail-${entry.slug}`);
+                        if (displayElement) {
+                            displayElement.textContent = `浏览量 ${pageViews} · 访问数 ${visits}`;
+                        }
+                    } catch (error) {
+                        console.error('Error fetching page views:', error);
+                        const displayElement = document.getElementById(`page-views-detail-${entry.slug}`);
+                        if (displayElement) {
+                            displayElement.textContent = '统计不可用';
                         }
                     }
-                })();
+                }
+
+                // 页面加载完成后获取统计数据
+                if (document.readyState === 'loading') {
+                    document.addEventListener('DOMContentLoaded', fetchPageViews);
+                } else {
+                    fetchPageViews();
+                }
             </script>
 
             <!-- title -->

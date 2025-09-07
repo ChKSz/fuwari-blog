@@ -8,6 +8,7 @@ import type {
 	NavBarConfig,
 	ProfileConfig,
 	SiteConfig,
+	UmamiConfig,
 } from "./types/config";
 import { LinkPreset } from "./types/config";
 
@@ -103,4 +104,11 @@ export const expressiveCodeConfig: ExpressiveCodeConfig = {
 	// 注意：某些样式（如背景色）已被覆盖，请参见astro.config.mjs文件。
 	// 请选择深色主题，因为此博客主题目前仅支持深色背景
 	theme: "github-dark",
+};
+
+export const umamiConfig: UmamiConfig = {
+	enable: true,
+	baseUrl: "https://us.umami.is",
+	shareId: "DHrKnEICFrgNDMxE",
+	timezone: "Asia/Hong_Kong",
 };

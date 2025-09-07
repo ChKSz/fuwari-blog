@@ -1,6 +1,6 @@
 ---
 import { Icon } from "astro-icon/components";
-import { profileConfig } from "../../config";
+import { profileConfig, umamiConfig } from "../../config";
 import { url } from "../../utils/url-utils";
 import ImageWrapper from "../misc/ImageWrapper.astro";
 
@@ -37,25 +37,62 @@ const config = profileConfig;
         
         <!-- 网站总浏览量 -->
         <div class="site-stats text-center text-neutral-400 text-sm mt-2 transition">
-            <span class="site-pageviews">总浏览量加载中...</span>
+            <span class="site-pageviews" id="site-pageviews">总浏览量加载中...</span>
         </div>
         
-        <script is:inline>
-            // 在客户端获取并显示网站总浏览量
-            (async () => {
-                const statsElement = document.querySelector('.site-stats .site-pageviews');
-                if (statsElement) {
-                    try {
-                        // 动态导入 umami-utils 模块
-                        const { getSiteStats } = await import('/src/utils/umami-utils.ts');
-                        const stats = await getSiteStats();
-                        statsElement.textContent = `总浏览量${stats.pageviews} · 总访问数${stats.visits}`;
-                    } catch (error) {
-                        console.error('Error fetching site stats:', error);
-                        statsElement.textContent = '总浏览量N/A';
+        <script define:vars={{ umamiConfig }}>
+            // 获取网站总浏览量统计
+            async function fetchSiteStats() {
+                if (!umamiConfig.enable) {
+                    return;
+                }
+                
+                try {
+                    // 第一步：获取网站ID和token
+                    const shareResponse = await fetch(`${umamiConfig.baseUrl}/api/share/${umamiConfig.shareId}`);
+                    if (!shareResponse.ok) {
+                        throw new Error('获取分享信息失败');
+                    }
+                    const shareData = await shareResponse.json();
+                    const { websiteId, token } = shareData;
+                    
+                    // 第二步：获取统计数据
+                    const currentTimestamp = Date.now();
+                    const statsUrl = `${umamiConfig.baseUrl}/api/websites/${websiteId}/stats?startAt=0&endAt=${currentTimestamp}&unit=day&timezone=${encodeURIComponent(umamiConfig.timezone)}&compare=false`;
+                    
+                    const statsResponse = await fetch(statsUrl, {
+                        headers: {
+                            'x-umami-share-token': token
+                        }
+                    });
+                    
+                    if (!statsResponse.ok) {
+                        throw new Error('获取统计数据失败');
+                    }
+                    
+                    const statsData = await statsResponse.json();
+                    const pageViews = statsData.pageviews?.value || 0;
+                    const visits = statsData.visits?.value || 0;
+                    
+                    const displayElement = document.getElementById('site-pageviews');
+                    if (displayElement) {
+                        displayElement.textContent = `总浏览量${pageViews} · 总访问数${visits}`;
+                    }
+                } catch (error) {
+                    console.error('Error fetching site stats:', error);
+                    const displayElement = document.getElementById('site-pageviews');
+                    if (displayElement) {
+                        displayElement.textContent = '总浏览量N/A';
                     }
                 }
-            })();
+            }
+
+            // 页面加载完成后获取统计数据
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', fetchSiteStats);
+            } else {
+                fetchSiteStats();
+            }
         </script>
     </div>
 </div>
