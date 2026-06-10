@@ -41,7 +41,7 @@ export enum LinkPreset {
 	Home = 0,
 	Archive = 1,
 	About = 2,
-}
+};
 
 export type NavBarLink = {
 	name: string;
@@ -92,11 +92,4 @@ export type BlogPostData = {
 
 export type ExpressiveCodeConfig = {
 	theme: string;
-};
-
-export type UmamiConfig = {
-	enable: boolean;
-	baseUrl: string;
-	shareId: string;
-	timezone: string;
 };

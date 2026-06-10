@@ -9,6 +9,8 @@ draft: false
 lang: ''
 ---
 
+<style color="#ff0000">本教程仅供参考，仅供使用</style>
+
 # 前言
 
 ## 原项目介绍
@@ -79,7 +81,7 @@ lang: ''
    (function(){
        const rawHTML = $0
        const context = rawHTML.innerHTML
-       
+   
        function analyzeMusicList(params) {
            const regexp = /href="\/song\?id=(\d+)"/g;
            const songIDMatches = context.match(regexp);
@@ -93,13 +95,12 @@ lang: ''
            });
            return songIDs;
        }
-       
+   
        const result = analyzeMusicList();
-       
+   
        console.log(result)
        console.log(result.toString())
    })()
-   
    ```
    
    ![](assets/images/2025-09-27-12-54-56-image.png)
@@ -203,8 +204,6 @@ lang: ''
 这个是使用`EdgeOne-Page`部署的，速度非常可以
 
 ![](assets/images/2025-09-27-13-18-58-image.png)
-
-
 
 ## 谢谢
 
