@@ -5,6 +5,8 @@ param(
 
 $ErrorActionPreference = "Stop"
 
+$MessageParts = $MessageParts | Where-Object { $_ -ne "--" }
+
 function Run-Git {
     param([string[]]$GitArgs)
 
@@ -12,14 +14,14 @@ function Run-Git {
     if ($LASTEXITCODE -ne 0) {
         throw "git $($GitArgs -join ' ') failed with exit code $LASTEXITCODE"
     }
+    return $LASTEXITCODE
 }
 
-$repoRoot = git rev-parse --show-toplevel 2>$null
-if ($LASTEXITCODE -ne 0 -or [string]::IsNullOrWhiteSpace($repoRoot)) {
-    throw "This script must be run inside a Git repository."
-}
-
+$scriptDir = Split-Path -Parent $PSCommandPath
+$repoRoot = Resolve-Path (Join-Path $scriptDir "..")
 Set-Location $repoRoot
+
+Run-Git @("rev-parse", "--is-inside-work-tree") | Out-Null
 
 $branch = git branch --show-current
 if ([string]::IsNullOrWhiteSpace($branch)) {
